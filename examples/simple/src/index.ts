@@ -1,8 +1,9 @@
-import xs, { Stream } from 'xstream';
-import { run } from '@cycle/run';
-import { button, div, span, makeDOMDriver, DOMSource, VNode } from '@cycle/dom';
+import xs, { Stream } from "xstream";
+import { run } from "@cycle/run";
+import { button, div, DOMSource, makeDOMDriver, span, VNode } from "@cycle/dom";
 
-import { modalify, Message, ModalAction } from '../../../src/modalify';
+import { Message, ModalAction, wrappedModalify } from "../../../src/modalify";
+import { SemanticUIModalWrapper } from "./SemanticUIModalWrapper";
 
 interface Sources {
     DOM : DOMSource;
@@ -21,6 +22,9 @@ function main({ DOM } : Sources) : Sinks
         modal: DOM.select('.button').events('click')
             .mapTo({
                 type: 'open',
+                props: {
+                    title : "Hello World!"
+                },
                 component: modal
             } as ModalAction)
     };
@@ -38,6 +42,6 @@ function modal({ DOM } : Sources) : Sinks
     };
 }
 
-run(modalify(main), {
+run(wrappedModalify(main, SemanticUIModalWrapper), {
     DOM: makeDOMDriver('#app')
 });

@@ -10,3 +10,22 @@ body, html {
 body {
     padding: 20px;
 }
+
+div.cyclejs-modal-container {
+    background: none;
+}
+
+.ui.modal.transition.visible.active {
+
+    min-width: 800px !important;
+    margin: 0 !important;
+    min-width: 300px !important;
+    position: unset !important;
+    top: 0 !important
+
+}
+
+.button {
+    font-size: 16px !important;
+    margin: 25px;
+}
