@@ -169,8 +169,6 @@ function displayModals(modals: VNode[], background: string = 'rgba(0,0,0,0.8)', 
 }
 
 function wrapModals(modals: VNode[], containerClass: string | null = null): VNode[] {
-    console.log("Class " + containerClass);
-    console.log("Irngwas")
     const wrapper = child => h('div', containerClass ? {
         attrs: {
             class: containerClass
